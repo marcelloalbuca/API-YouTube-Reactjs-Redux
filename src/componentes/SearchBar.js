@@ -1,9 +1,29 @@
-import React from "react";
+import React, {Component} from "react";
+import {Segment, Input} from 'semantic-ui-react'
 
-const SearchBar = props => {
-    return (
-        <div><h1> Search Bar </h1></div>
-    )
+
+//const SearchBar = props => {
+class SearchBar extends Component {
+
+    pesquisaTermo = e =>{
+        
+        if(e.keyCode === 13){
+            const termo = e.target.value
+            console.log(termo)
+        }
+        
+    }
+
+    render() {
+        return (
+            <div className="search-bar">
+                <Segment stacked>
+                    <Input icon="search" onKeyDown={(e) => this.pesquisaTermo(e)} size="large" placeholder="Search . . ." /> 
+                </Segment>
+
+            </div>
+        )
+    }
 }
 
 export default SearchBar
